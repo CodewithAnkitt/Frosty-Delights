@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frosty Delights - Premium Ice Cream Shop</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== LOADING SCREEN ===== -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="loader-cone">🍦</div>
+      <p class="loader-text">Loading Frosty Delights...</p>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ===== BACK TO TOP BUTTON ===== -->
+  <button id="backToTop" class="back-to-top" title="Back to Top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- ===== DARK/LIGHT MODE TOGGLE ===== -->
+  <button id="themeToggle" class="theme-toggle" title="Toggle Theme">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- ===== CART SIDEBAR ===== -->
+  <div id="cartOverlay" class="cart-overlay"></div>
+  <div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+      <button id="closeCart" class="close-cart"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="cartItems" class="cart-items">
+      <div class="cart-empty">
+        <span>🍦</span>
+        <p>Your cart is empty!</p>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <button class="btn-checkout">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-icon">🍦</span>
+        <span class="logo-text">Frosty <span>Delights</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#offers" class="nav-link">Special Offers</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#booking" class="nav-link">Book Table</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="cartBtn" class="cart-btn">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cartCount" class="cart-count">0</span>
+        </button>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="home" class="hero">
+    <div class="particles" id="particles"></div>
+
+    <div class="hero-slider" id="heroSlider">
+      <div class="slide active" data-color="#ffecd2,#fcb69f">
+        <div class="slide-visual">
+          <div class="slide-emoji">🍦</div>
+          <h3>Vanilla Delight</h3>
+          <p>Classic &amp; Creamy</p>
+        </div>
+      </div>
+      <div class="slide" data-color="#e0c3fc,#8ec5fc">
+        <div class="slide-visual">
+          <div class="slide-emoji">🍫</div>
+          <h3>Chocolate Heaven</h3>
+          <p>Rich &amp; Indulgent</p>
+        </div>
+      </div>
+      <div class="slide" data-color="#fda085,#f6d365">
+        <div class="slide-visual">
+          <div class="slide-emoji">🍓</div>
+          <h3>Strawberry Dream</h3>
+          <p>Fresh &amp; Fruity</p>
+        </div>
+      </div>
+      <div class="slide" data-color="#f9d423,#ff9a3c">
+        <div class="slide-visual">
+          <div class="slide-emoji">🥭</div>
+          <h3>Mango Magic</h3>
+          <p>Tropical &amp; Sweet</p>
+        </div>
+      </div>
+      <div class="slide" data-color="#96fbc4,#a8edea">
+        <div class="slide-visual">
+          <div class="slide-emoji">🌿</div>
+          <h3>Mint Fresh</h3>
+          <p>Cool &amp; Refreshing</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">✨ Premium Quality Since 2009</div>
+      <h1 class="hero-title">Taste Happiness<br><span>in Every Scoop!</span></h1>
+      <p class="hero-desc">Handcrafted with love using the finest ingredients. Discover over 50 unique flavors that will take your taste buds on an unforgettable journey.</p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-primary">
+          <i class="fas fa-ice-cream"></i> Explore Menu
+        </a>
+        <a href="#booking" class="btn btn-secondary">
+          <i class="fas fa-calendar-alt"></i> Book a Table
+        </a>
+      </div>
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+
+    <div class="floating-scoops">
+      <span class="scoop s1">🍦</span>
+      <span class="scoop s2">🍧</span>
+      <span class="scoop s3">🍨</span>
+      <span class="scoop s4">🧁</span>
+      <span class="scoop s5">🍡</span>
+      <span class="scoop s6">🍰</span>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <p>Scroll Down</p>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-tag">Our Story</span>
+        <h2 class="section-title">About <span>Frosty Delights</span></h2>
+        <p class="section-subtitle">A sweet journey that started with a single scoop of passion</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-images" data-aos>
+          <div class="about-img-main">
+            <div class="img-placeholder main-img">
+              <span>🍦</span>
+              <p>Our Signature Scoops</p>
+            </div>
+          </div>
+          <div class="about-img-secondary">
+            <div class="img-placeholder sec-img1">
+              <span>👨‍🍳</span>
+              <p>Expert Craftsmanship</p>
+            </div>
+            <div class="img-placeholder sec-img2">
+              <span>🌿</span>
+              <p>Fresh Ingredients</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text" data-aos>
+          <h3>Crafting Sweet Memories Since 2009</h3>
+          <p>Welcome to Frosty Delights, where every scoop tells a story of passion, quality, and pure joy. Founded in 2009 by the Sharma family, we started as a small parlour with just 5 flavors and a big dream.</p>
+          <p>Today, we proudly serve over 50 handcrafted flavors made from the freshest local ingredients, exotic fruits, and premium Belgian chocolate. Our recipes are a blend of traditional Indian flavors and international inspirations.</p>
+          <p>Every batch is made fresh daily in our kitchen, ensuring you always get the creamiest, most delicious ice cream possible. We believe happiness comes in scoops!</p>
+          <a href="#menu" class="btn btn-primary">Discover Our Flavors</a>
+        </div>
+      </div>
+
+      <div class="stats-grid" data-aos>
+        <div class="stat-card">
+          <div class="stat-icon">🍦</div>
+          <div class="stat-number" data-target="50">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label">Unique Flavors</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">😊</div>
+          <div class="stat-number" data-target="10000">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-number" data-target="15">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🏆</div>
+          <div class="stat-number" data-target="25">0</div>
+          <div class="stat-plus">+</div>
+          <div class="stat-label">Awards Won</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MENU SECTION ===== -->
+  <section id="menu" class="menu section">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-tag">Our Menu</span>
+        <h2 class="section-title">Irresistible <span>Flavors</span></h2>
+        <p class="section-subtitle">Handcrafted with love, served with joy</p>
+      </div>
+
+      <div class="menu-filters" data-aos>
+        <button class="filter-btn active" data-filter="all"><span class="filter-icon">🍽️</span> All</button>
+        <button class="filter-btn" data-filter="cones"><span class="filter-icon">🍦</span> Cones</button>
+        <button class="filter-btn" data-filter="scoops"><span class="filter-icon">🍨</span> Scoops</button>
+        <button class="filter-btn" data-filter="sticks"><span class="filter-icon">🍫</span> Sticks</button>
+        <button class="filter-btn" data-filter="family"><span class="filter-icon">👨‍👩‍👧‍👦</span> Family Packs</button>
+        <button class="filter-btn" data-filter="special"><span class="filter-icon">✨</span> Frosty Specials</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== SPECIAL OFFERS SECTION ===== -->
+  <section id="offers" class="offers section">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-tag">Hot Deals</span>
+        <h2 class="section-title">Special <span>Offers</span></h2>
+        <p class="section-subtitle">Grab these limited-time deals before they melt away!</p>
+      </div>
+
+      <div class="countdown-wrapper" data-aos>
+        <p class="countdown-label">⏰ Offers expire in:</p>
+        <div class="countdown" id="countdown">
+          <div class="time-block"><span id="days">00</span><label>Days</label></div>
+          <div class="time-sep">:</div>
+          <div class="time-block"><span id="hours">00</span><label>Hours</label></div>
+          <div class="time-sep">:</div>
+          <div class="time-block"><span id="minutes">00</span><label>Mins</label></div>
+          <div class="time-sep">:</div>
+          <div class="time-block"><span id="seconds">00</span><label>Secs</label></div>
+        </div>
+      </div>
+
+      <div class="offers-grid">
+        <div class="offer-card" data-aos>
+          <div class="offer-badge">🔥 HOT</div>
+          <div class="offer-icon">🍦🍦</div>
+          <h3>Buy 1 Get 1 Free</h3>
+          <p>Order any single scoop and get another one absolutely free! Valid on all classic flavors.</p>
+          <div class="offer-tag">Valid Today Only</div>
+          <button class="btn btn-primary">Grab Deal</button>
+        </div>
+        <div class="offer-card featured" data-aos>
+          <div class="offer-badge">⭐ BEST</div>
+          <div class="offer-icon">👨‍👩‍👧‍👦</div>
+          <h3>Family Combo</h3>
+          <p>4 scoops + 2 sundaes + 4 waffle cones. Perfect for a family outing. Save ₹150!</p>
+          <div class="offer-price">Only ₹499</div>
+          <button class="btn btn-primary">Order Now</button>
+        </div>
+        <div class="offer-card" data-aos>
+          <div class="offer-badge">🎉 WEEKEND</div>
+          <div class="offer-icon">🎊</div>
+          <h3>Weekend Special</h3>
+          <p>Every Saturday &amp; Sunday, enjoy 20% off on all premium flavors and sundaes.</p>
+          <div class="offer-tag">Sat &amp; Sun Only</div>
+          <button class="btn btn-primary">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY SECTION ===== -->
+  <section id="gallery" class="gallery section">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-tag">Visual Treats</span>
+        <h2 class="section-title">Our <span>Gallery</span></h2>
+        <p class="section-subtitle">A feast for the eyes before the feast for your taste buds</p>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+
+    <div id="lightbox" class="lightbox">
+      <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+      <button class="lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+      <button class="lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+      <div class="lightbox-content" id="lightboxContent"></div>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS SECTION ===== -->
+  <section id="reviews" class="reviews section">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-tag">Testimonials</span>
+        <h2 class="section-title">What Our <span>Customers Say</span></h2>
+        <p class="section-subtitle">Real stories from our happy ice cream lovers</p>
+      </div>
+      <div class="reviews-slider-wrapper" data-aos>
+        <div class="reviews-slider" id="reviewsSlider"></div>
+        <div class="reviews-nav">
+          <button id="reviewPrev" class="review-nav-btn"><i class="fas fa-chevron-left"></i></button>
+          <div class="review-dots" id="reviewDots"></div>
+          <button id="reviewNext" class="review-nav-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOOK TABLE SECTION ===== -->
+  <section id="booking" class="booking section">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-tag">Reservations</span>
+        <h2 class="section-title">Book a <span>Table</span></h2>
+        <p class="section-subtitle">Reserve your sweet spot and we'll have everything ready for you</p>
+      </div>
+
+      <div class="booking-wrapper" data-aos>
+        <div class="booking-info">
+          <h3>Why Reserve a Table?</h3>
+          <ul class="booking-perks">
+            <li><i class="fas fa-check-circle"></i> Priority seating guaranteed</li>
+            <li><i class="fas fa-check-circle"></i> Complimentary welcome scoop</li>
+            <li><i class="fas fa-check-circle"></i> Special occasion decorations</li>
+            <li><i class="fas fa-check-circle"></i> Dedicated server for your table</li>
+            <li><i class="fas fa-check-circle"></i> Custom flavor requests</li>
+          </ul>
+          <div class="booking-hours">
+            <h4><i class="fas fa-clock"></i> Working Hours</h4>
+            <p>Mon – Fri: 11:00 AM – 10:00 PM</p>
+            <p>Sat – Sun: 10:00 AM – 11:00 PM</p>
+          </div>
+        </div>
+
+        <form id="bookingForm" class="booking-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guestName"><i class="fas fa-user"></i> Full Name *</label>
+              <input type="text" id="guestName" name="guestName" placeholder="Your full name" />
+              <span class="error-msg" id="nameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="guestEmail"><i class="fas fa-envelope"></i> Email *</label>
+              <input type="email" id="guestEmail" name="guestEmail" placeholder="your@email.com" />
+              <span class="error-msg" id="emailError"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guestPhone"><i class="fas fa-phone"></i> Mobile Number *</label>
+              <input type="tel" id="guestPhone" name="guestPhone" placeholder="+91 XXXXX XXXXX" />
+              <span class="error-msg" id="phoneError"></span>
+            </div>
+            <div class="form-group">
+              <label for="guestCount"><i class="fas fa-users"></i> Number of Guests *</label>
+              <select id="guestCount" name="guestCount">
+                <option value="">Select guests</option>
+                <option value="1">1 Person</option>
+                <option value="2">2 People</option>
+                <option value="3">3 People</option>
+                <option value="4">4 People</option>
+                <option value="5">5 People</option>
+                <option value="6+">6+ People</option>
+              </select>
+              <span class="error-msg" id="guestError"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bookDate"><i class="fas fa-calendar"></i> Date *</label>
+              <input type="date" id="bookDate" name="bookDate" />
+              <span class="error-msg" id="dateError"></span>
+            </div>
+            <div class="form-group">
+              <label for="bookTime"><i class="fas fa-clock"></i> Time *</label>
+              <input type="time" id="bookTime" name="bookTime" />
+              <span class="error-msg" id="timeError"></span>
+            </div>
+          </div>
+          <div class="form-group full-width">
+            <label for="specialReq"><i class="fas fa-star"></i> Special Requests</label>
+            <textarea id="specialReq" name="specialReq" rows="3" placeholder="Birthday celebration, dietary requirements, favorite flavors..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <i class="fas fa-calendar-check"></i> Confirm Booking
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Success Popup -->
+  <div id="bookingPopup" class="popup-overlay">
+    <div class="popup-box">
+      <div class="popup-icon">🎉</div>
+      <h3>Booking Confirmed!</h3>
+      <p>Your table has been booked successfully! We look forward to serving you the sweetest experience.</p>
+      <p class="popup-sub">A confirmation will be sent to your email shortly.</p>
+      <button id="closePopup" class="btn btn-primary">Awesome, Thanks!</button>
+    </div>
+  </div>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="contact section">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Contact <span>Us</span></h2>
+        <p class="section-subtitle">We'd love to hear from you. Drop by or reach out anytime!</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info" data-aos>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <h4>Our Location</h4>
+            <p>Lalpur,<br>Ranchi Jharkhand ,India - 834001</p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+            <h4>Phone Number</h4>
+            <p><br>+91 7004253835</p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <h4>Email Address</h4>
+            <p>hello@frostydelights.in<br>orders@frostydelights.in</p>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="map-wrapper" data-aos>
+          <div class="map-placeholder">
+            <i class="fas fa-map-marked-alt"></i>
+            <h4>Find Us Here</h4>
+            <p>Ranchi, Jharkhand , India</p>
+            <a href="https://maps.google.com" target="_blank" class="btn btn-primary">
+              <i class="fas fa-directions"></i> Get Directions
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#home" class="nav-logo">
+              <span class="logo-icon">🍦</span>
+              <span class="logo-text">Frosty <span>Delights</span></span>
+            </a>
+            <p>Crafting happiness one scoop at a time since 2009. Premium ice cream made with love and the finest ingredients.</p>
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+              <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+              <li><a href="#menu"><i class="fas fa-chevron-right"></i> Our Menu</a></li>
+              <li><a href="#offers"><i class="fas fa-chevron-right"></i> Special Offers</a></li>
+              <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+              <li><a href="#booking"><i class="fas fa-chevron-right"></i> Book a Table</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-hours">
+            <h4>Working Hours</h4>
+            <ul>
+              <li><span>Monday – Friday</span><span>11:00 AM – 10:00 PM</span></li>
+              <li><span>Saturday</span><span>10:00 AM – 11:00 PM</span></li>
+              <li><span>Sunday</span><span>10:00 AM – 11:00 PM</span></li>
+              <li class="open-now"><span>🟢 We're Open Now!</span></li>
+            </ul>
+          </div>
+
+          <div class="footer-newsletter">
+            <h4>Newsletter</h4>
+            <p>Subscribe for exclusive deals, new flavor alerts, and sweet surprises!</p>
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" placeholder="Enter your email" id="newsletterEmail" />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+            <p class="newsletter-note" id="newsletterMsg"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 Frosty Delights. All Rights Reserved. Made with <span>Ankit</span> <span>Kumar</span></p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
